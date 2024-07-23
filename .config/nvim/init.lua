@@ -1,10 +1,3 @@
-if vim.loader then
-	vim.loader.enable()
+if not vim.g.vscode then
+	require("core")
 end
-
-_G.dd = function(...)
-	require("util.debug").dump(...)
-end
-vim.print = _G.dd
-
-require("config.lazy")

@@ -244,6 +244,18 @@ mkdirg() {
 	mkdir -p "$1"
 	cd "$1"
 }
+ytaudio(){
+	yt-dlp --extract-audio --audio-format mp3 $1}
+compile(){
+	
+ if [ ! -d "bin" ]; then
+    mkdir bin
+    echo "Created directory 'bin'"
+  fi
+	g++ $1 -o bin/$1.out
+
+	./bin/$1.out
+}
 
 # Goes up a specified number of directories  (i.e. up 4)
 
@@ -281,6 +293,7 @@ HISTSIZE=100000
 SAVEHIST=100000
 setopt appendhistory
 alias h='history'
+alias dev='pnpm run dev'
 alias open='dolphin .'
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
